@@ -1,25 +1,14 @@
 import React from "react";
-import * as Yup from "yup";
 import { Formik } from "formik";
 // Redux
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { loginRequest } from "store/ducks/login";
 // Component
+import { LoginSchema } from "validations/validate";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import "./login.scss";
-
-const LoginSchema = Yup.object().shape({
-  login: Yup.string()
-    .min(2, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required"),
-  password: Yup.string()
-    .min(2, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required")
-});
 
 const Login = ({ loginRequest, loading }) => {
   return (

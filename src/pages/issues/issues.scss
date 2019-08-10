@@ -1,0 +1,37 @@
+.issues-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  .issues-wrapper-nav {
+    display: flex;
+    justify-content: space-between;
+    button:hover {
+      background: unset;
+      color: rgb(71, 155, 184);
+    }
+  }
+  .issues {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .card-wrapper {
+      min-width: 320px;
+      width: 100%;
+      max-width: 768px;
+      margin: 15px;
+    }
+    .issues-title {
+      cursor: pointer;
+    }
+    .issues-title span:hover {
+      color: #a29418;
+    }
+  }
+}
+
+.submitForm {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
+}

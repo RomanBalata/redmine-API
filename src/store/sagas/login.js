@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { takeLatest, put, call } from "redux-saga/effects";
 import { loginSuccess, loginFailure } from "store/ducks/login";
 import { push } from "connected-react-router";
@@ -26,10 +27,10 @@ function* worker({
   // { payload }
   try {
     yield call(loginApi, login, password);
-    yield put(push("/projects"));
-    yield put(loginSuccess());
     sessionStorage.setItem("login", login);
     sessionStorage.setItem("password", password);
+    yield put(push("/projects"));
+    yield put(loginSuccess());
   } catch (errors) {
     yield put(loginFailure());
     yield call(setErrors, {

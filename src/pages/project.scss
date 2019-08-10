@@ -1,0 +1,28 @@
+.project-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  .project {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .card-wrapper {
+      min-width: 320px;
+      max-width: 768px;
+      margin: 15px;
+    }
+    .projectTitle {
+      cursor: pointer;
+    }
+    .projectTitle span:hover {
+      color: #a29418;
+    }
+  }
+}
+
+.submitForm {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
+}
