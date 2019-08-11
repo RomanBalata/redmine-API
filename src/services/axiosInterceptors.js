@@ -5,9 +5,6 @@ const api = axios.create({
   baseURL: "https://redmine.ekreative.com/",
   timeout: 10000,
   headers: {
-    Authorization: `Basic ${btoa(
-      `${sessionStorage.getItem("login")}:${sessionStorage.getItem("password")}`
-    )}`,
     "Content-Type": "application/json"
   }
 });

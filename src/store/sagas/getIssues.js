@@ -8,7 +8,15 @@ const get_issues_api = "/issues.json";
 const getIssuesApi = () => {
   return axios({
     method: "GET",
-    url: get_issues_api
+    url: get_issues_api,
+    headers: {
+      Authorization: `Basic ${btoa(
+        `${sessionStorage.getItem("login")}:${sessionStorage.getItem(
+          "password"
+        )}`
+      )}`,
+      "Content-Type": "application/json"
+    }
   });
 };
 

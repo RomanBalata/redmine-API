@@ -12,6 +12,14 @@ const getIssuesApi = id => {
   return axios({
     method: "GET",
     url: get_issues_api,
+    headers: {
+      Authorization: `Basic ${btoa(
+        `${sessionStorage.getItem("login")}:${sessionStorage.getItem(
+          "password"
+        )}`
+      )}`,
+      "Content-Type": "application/json"
+    },
     params: {
       issue_id: id
     }
