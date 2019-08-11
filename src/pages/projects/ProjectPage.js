@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 
 import { Formik } from "formik";
-import { TimeSchema, CommentSchema } from "validations/validate";
+import { TimeSchema, CommentSchema } from "utils/validate";
 // Redux
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
@@ -39,10 +39,12 @@ class ProjectPage extends Component {
   }
 
   getComments = () => {
-    const comments = sessionStorage.getItem("comments") || [];
-    this.setState({
-      comments: JSON.parse(comments)
-    });
+    const comments = sessionStorage.getItem("comments");
+    if (comments) {
+      this.setState({
+        comments: JSON.parse(comments)
+      });
+    }
   };
 
   setComments = ({ values: { comment }, id, actions: { resetForm } }) => {

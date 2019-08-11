@@ -11,15 +11,6 @@ const trackTimeApi = (time, id) => {
   return axios({
     method: "POST",
     url: track_time_api,
-    headers: {
-      Authorization: `Basic ${btoa(
-        `${sessionStorage.getItem("login")}:${sessionStorage.getItem(
-          "password"
-        )}`
-      )}`,
-      "Content-Type": "application/json"
-    },
-
     data: {
       time_entry: {
         project_id: id,

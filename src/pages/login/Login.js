@@ -5,7 +5,7 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { loginRequest } from "store/ducks/login";
 // Component
-import { LoginSchema } from "validations/validate";
+import { LoginSchema } from "utils/validate";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import "./login.scss";

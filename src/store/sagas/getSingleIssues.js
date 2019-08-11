@@ -9,18 +9,9 @@ import axios from "services/axiosInterceptors";
 const get_issues_api = "/issues.json";
 
 const getIssuesApi = id => {
-  console.log("ID", id);
   return axios({
     method: "GET",
     url: get_issues_api,
-    headers: {
-      Authorization: `Basic ${btoa(
-        `${sessionStorage.getItem("login")}:${sessionStorage.getItem(
-          "password"
-        )}`
-      )}`,
-      "Content-Type": "application/json"
-    },
     params: {
       issue_id: id
     }
@@ -28,7 +19,6 @@ const getIssuesApi = id => {
 };
 
 function* worker({ payload: { id } }) {
-  console.log(id);
   try {
     const { data } = yield call(getIssuesApi, id);
     yield put(getSingleIssuesSuccess(data));

@@ -5,12 +5,12 @@ import { push } from "connected-react-router";
 import axios from "services/axiosInterceptors";
 
 // eslint-disable-next-line camelcase
-const login_api = "/issues.json";
+const login_url = "/issues.json";
 
 const loginApi = (login, password) => {
   return axios({
     method: "GET",
-    url: login_api,
+    url: login_url,
     headers: {
       Authorization: `Basic ${btoa(`${login}:${password}`)}`,
       "Content-Type": "application/json"
@@ -29,8 +29,8 @@ function* worker({
     yield call(loginApi, login, password);
     sessionStorage.setItem("login", login);
     sessionStorage.setItem("password", password);
-    yield put(push("/projects"));
     yield put(loginSuccess());
+    yield put(push("/projects"));
   } catch (errors) {
     yield put(loginFailure());
     yield call(setErrors, {
